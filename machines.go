@@ -41,12 +41,6 @@ type ReinstallMachineOptions struct {
 	AutoStart  int    `json:"auto_start,omitempty"`
 }
 
-// Represents CreateMachine() response
-type CreateMachine struct {
-	Name string `json:"name"`
-	Jobs []*Job `json:"jobs"`
-}
-
 // Represents a winvps machine info
 type Machine struct {
 	Name   string `json:"name"`
