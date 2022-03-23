@@ -1,0 +1,10 @@
+{
+  "data": {
+    "id": 1,
+    "parent_id": 1,
+    "machine_id": 123,
+    "type": "Change",
+    "status": "Complete",
+    "start_time": "2020-10-20 01:02:03"
+  }
+}

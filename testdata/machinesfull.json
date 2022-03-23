@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "name": "VPS0123",
+      "status": "Running",
+      "notes": "",
+      "ips": [
+        {
+          "version": 4,
+          "address": "127.0.0.1"
+        }
+      ],
+      "os": {
+        "template_id": "1",
+        "brand_id": 1,
+        "update_status": {
+          "h_result": 1,
+          "reboot_required": true,
+          "result_code": 1,
+          "update_time": "2020-10-20 01:02:03"
+        }
+      },
+      "config": {
+        "bandwidth": 10,
+        "cpu_cores": 1,
+        "cpu_percent": 100,
+        "disk_size": 30,
+        "ram_min": 1024,
+        "ram_max": 1024
+      }
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "limit": 50,
+    "page": 1,
+    "pages": 1
+  }
+}

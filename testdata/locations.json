@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "test"
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "limit": 50,
+    "page": 1,
+    "pages": 1
+  }
+}

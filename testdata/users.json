@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "username": "admin",
+      "role": "admin",
+      "password": "secret"
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "limit": 50,
+    "page": 1,
+    "pages": 1
+  }
+}

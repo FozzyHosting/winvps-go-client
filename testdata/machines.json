@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "name": "VPS0123",
+      "status": "Running",
+      "notes": ""
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "limit": 50,
+    "page": 1,
+    "pages": 1
+  }
+}

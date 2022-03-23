@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "test",
+      "limits": {
+        "disk_size": 30,
+        "ram_min": 1024,
+        "ram_max": 1024,
+        "cpu_percent": 100,
+        "cpu_cores": 1,
+        "bandwidth": 10,
+        "traffic": 1
+      }
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "limit": 50,
+    "page": 1,
+    "pages": 1
+  }
+}
