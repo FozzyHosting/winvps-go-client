@@ -10,14 +10,6 @@ type Brand struct {
 	Name string `json:"name"`
 }
 
-// func (b Brand) String() string {
-// 	return Stringify(m)
-// 	body, err := json.Marshal(b)
-// 	if err != nil {
-// 		fmt.Println(err)
-// 	}
-// }
-
 // Returns all available brands. Info from Pagination can be used to get brands using RequestOptions
 // default Limit 50
 func (c *Client) GetBrands(opts ...*RequestOptions) ([]*Brand, *Pagination, error) {
