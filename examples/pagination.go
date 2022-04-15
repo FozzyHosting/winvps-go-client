@@ -23,9 +23,8 @@ func pagination() {
 		for _, m := range machines {
 			fmt.Println(m.Name, m.Status)
 		}
-		if page.NextPage() == 0 {
+		if rOpts.Page = page.NextPage(); rOpts.Page == 0 {
 			break
 		}
-		rOpts.Page = page.NextPage()
 	}
 }
