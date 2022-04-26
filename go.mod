@@ -1,4 +1,4 @@
-module github.com/FozzyHosting/go-winvps
+module github.com/fozzyhosting/winvps-go-client
 
 go 1.17
 
