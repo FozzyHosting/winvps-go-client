@@ -15,9 +15,15 @@ func getMachines() {
 
 	// short form
 	machines, _, err := winClient.GetMachines()
+	if err != nil {
+		log.Fatalf("Failed to get machines: %v", err)
+	}
 
 	// complete form
-	machinesFull, _, err = winClient.GetMachinesFull()
+	machinesFull, _, err := winClient.GetMachinesFull()
+	if err != nil {
+		log.Fatalf("Failed to get machines: %v", err)
+	}
 
 	for _, m := range machines {
 		fmt.Println(m.Name, m.Status)
@@ -44,7 +50,7 @@ func createMachine() {
 	if err != nil {
 		log.Fatalf("Failed to create machine: %v", err)
 	}
-	fmt.Printf("Machine %s create accepted, job id: %s", machineName, jobs[0].ID)
+	fmt.Printf("Machine %s create accepted, job id: %d", machineName, jobs[0].ID)
 }
 
 func updateMachine() {
@@ -62,7 +68,7 @@ func updateMachine() {
 	if err != nil {
 		log.Fatalf("Failed to update machine: %v", err)
 	}
-	fmt.Printf("Machine %s update accepted, job id: %s", machineName, jobs[0].ID)
+	fmt.Printf("Machine %s update accepted, job id: %d", machineName, jobs[0].ID)
 }
 
 func reinstallMachine() {
@@ -79,7 +85,7 @@ func reinstallMachine() {
 	if err != nil {
 		log.Fatalf("Failed to reintall machine: %v", err)
 	}
-	fmt.Printf("Machine %s reinstall accepted, job id: %s", machineName, jobs[0].ID)
+	fmt.Printf("Machine %s reinstall accepted, job id: %d", machineName, jobs[0].ID)
 }
 
 func deleteMachine() {
@@ -93,5 +99,5 @@ func deleteMachine() {
 	if err != nil {
 		log.Fatalf("Failed to delete machine: %v", err)
 	}
-	fmt.Printf("Machine %s delete accepted, job id: %s", machineName, jobs[0].ID)
+	fmt.Printf("Machine %s delete accepted, job id: %d", machineName, jobs[0].ID)
 }
