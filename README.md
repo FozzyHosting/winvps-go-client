@@ -1,6 +1,8 @@
-# go-winvps
+# winvps-go-client
 
-A Winvps API client to interact with Winvps service
+A Winvps API client to interact with Winvps service  
+
+[![Test Status](https://github.com/FozzyHosting/winvps-go-client/actions/workflows/test.yml/badge.svg)](https://github.com/FozzyHosting/winvps-go-client/actions/workflows/test.yml)
 
 ## Developer Documentation
 
@@ -9,7 +11,7 @@ The actual API Documentation available on this [link](https://winvps.fozzy.com/a
 ## Usage
 
 ```go
-import "github.com/FozzyHosting/go-winvps"
+import "github.com/fozzyhosting/winvps-go-client"
 
 winClient, err := winvps.NewClient("token")
 if err != nil {

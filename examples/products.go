@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/FozzyHosting/go-winvps"
+	"github.com/fozzyhosting/winvps-go-client"
 )
 
 func GetProducts() {

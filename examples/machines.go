@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/FozzyHosting/go-winvps"
+	"github.com/fozzyhosting/winvps-go-client"
 )
 
 func getMachines() {
@@ -17,10 +17,14 @@ func getMachines() {
 	machines, _, err := winClient.GetMachines()
 
 	// complete form
-	machines, _, err = winClient.GetMachinesFull()
+	machinesFull, _, err = winClient.GetMachinesFull()
 
 	for _, m := range machines {
 		fmt.Println(m.Name, m.Status)
+	}
+
+	for _, m := range machinesFull {
+		fmt.Println(m.Name, m.Status, m.Config.CpuCores)
 	}
 }
 
