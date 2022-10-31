@@ -144,23 +144,23 @@ func TestGetMachineUsers(t *testing.T) {
 	require.Nil(t, got)
 }
 
-func TestGetMachinePassword(t *testing.T) {
+func TestChangeMachinePassword(t *testing.T) {
 	mux, server, client := setup(t)
 	defer teardown(server)
 
-	mux.HandleFunc(apiVerPath+"machines/VPS0123/password", func(w http.ResponseWriter, r *http.Request) {
-		require.Equal(t, http.MethodGet, r.Method)
-		writeFixture(t, w, "password.json")
+	mux.HandleFunc(apiVerPath+"machines/VPS0123/change_password", func(w http.ResponseWriter, r *http.Request) {
+		require.Equal(t, http.MethodPost, r.Method)
+		writeFixture(t, w, "change_password.json")
 	})
 
-	want := &Password{ID: 1, Name: "VPS0123", Status: "Running", Password: "secret", Users: []*AdditionalUser{{Username: "admin", Password: "secret"}}}
-	got, err := client.GetMachinePassword("VPS0123")
+	want := true
+	got, err := client.ChangeMachinePassword("VPS0123", "secret")
 	require.NoError(t, err)
 	require.Equal(t, want, got)
 
-	got, err = client.GetMachinePassword("VPS01")
+	got, err = client.ChangeMachinePassword("VPS01", "secret")
 	require.Error(t, err)
-	require.Nil(t, got)
+	require.False(t, got)
 }
 
 func TestCreateMachine(t *testing.T) {
