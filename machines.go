@@ -82,13 +82,14 @@ type User struct {
 	Password string `json:"password"`
 }
 
-// Represents a GetMachinePassword() response
-type Password struct {
-	ID       int               `json:"id"`
-	Name     string            `json:"name"`
-	Status   string            `json:"status"`
-	Password string            `json:"password"`
-	Users    []*AdditionalUser `json:"users"`
+// Represents a simple result response
+type result struct {
+	Result bool `json:"result"`
+}
+
+// Represents a change_password request
+type password struct {
+	Password string `json:"password"`
 }
 
 type AdditionalUser struct {
@@ -298,22 +299,23 @@ func (c *Client) GetMachineUsers(name string, opts ...*RequestOptions) ([]*User,
 	return result, &resp.Pagination, nil
 }
 
-// Return Password struct containing current root user password
-func (c *Client) GetMachinePassword(name string) (*Password, error) {
-	u := fmt.Sprintf("machines/%s/password", url.PathEscape(name))
+// Change VPS machine password
+func (c *Client) ChangeMachinePassword(name, pass string) (bool, error) {
+	u := fmt.Sprintf("machines/%s/change_password", url.PathEscape(name))
 
-	req, err := c.NewRequest(http.MethodGet, u, nil, nil)
+	opt := &password{Password: pass}
+	req, err := c.NewRequest(http.MethodPost, u, opt, nil)
 	if err != nil {
-		return nil, err
+		return false, err
 	}
 
-	result := new(Password)
+	result := new(result)
 	_, err = c.Do(req, result)
 	if err != nil {
-		return nil, err
+		return false, err
 	}
 
-	return result, nil
+	return result.Result, nil
 }
 
 // helper func to validate command for SendMachineCommand()
