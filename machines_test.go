@@ -169,13 +169,13 @@ func TestCreateMachine(t *testing.T) {
 
 	mux.HandleFunc(apiVerPath+"machines", func(w http.ResponseWriter, r *http.Request) {
 		require.Equal(t, http.MethodPost, r.Method)
-		require.Equal(t, `{"product_id":1,"template_id":1,"location_id":1}`, getBody(t, r))
+		require.Equal(t, `{"product_id":1,"template_id":1,"location_id":1,"ui_language":"en-US"}`, getBody(t, r))
 		writeFixture(t, w, "machinecreate.json")
 	})
 
 	want := []*Job{{ID: 1, ParentID: 1, MachineID: 123, Type: "Initialize", Status: "Inprogress", StartTime: "2020-10-20 01:02:03"}}
 	wantName := "VPS0123"
-	opts := &CreateMachineOptions{LocationID: 1, ProductID: 1, TemplateID: 1}
+	opts := &CreateMachineOptions{LocationID: 1, ProductID: 1, TemplateID: 1, UiLanguage: "en-US"}
 	gotName, got, err := client.CreateMachine(opts)
 	require.NoError(t, err)
 	require.Equal(t, want, got)

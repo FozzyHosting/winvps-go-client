@@ -21,6 +21,7 @@ type CreateMachineOptions struct {
 	AddBand     int    `json:"add_band,omitempty"`
 	AutoStart   int    `json:"auto_start,omitempty"`
 	AddIPv6     int    `json:"add_ipv6,omitempty"`
+	UiLanguage  string `json:"ui_language,omitempty"`
 }
 
 // List of available UpdateMachine() options
